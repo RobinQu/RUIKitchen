@@ -19,6 +19,8 @@
 		258DA6DE1771AC7E00953C70 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258DA6C61771AC7E00953C70 /* UIKit.framework */; };
 		258DA6E61771AC7E00953C70 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 258DA6E41771AC7E00953C70 /* InfoPlist.strings */; };
 		258DA6E81771AC7E00953C70 /* RUIKitchenSinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 258DA6E71771AC7E00953C70 /* RUIKitchenSinkTests.m */; };
+		258DA6F41771B53200953C70 /* RModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 258DA6F31771B53200953C70 /* RModalViewController.m */; };
+		258DA6F51771B53200953C70 /* RModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 258DA6F31771B53200953C70 /* RModalViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		258DA6E31771AC7E00953C70 /* RUIKitchenSinkTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RUIKitchenSinkTests-Info.plist"; sourceTree = "<group>"; };
 		258DA6E51771AC7E00953C70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		258DA6E71771AC7E00953C70 /* RUIKitchenSinkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RUIKitchenSinkTests.m; sourceTree = "<group>"; };
+		258DA6F21771B53200953C70 /* RModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RModalViewController.h; path = Classes/RModalViewController.h; sourceTree = "<group>"; };
+		258DA6F31771B53200953C70 /* RModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RModalViewController.m; path = Classes/RModalViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,7 @@
 		258DA6B61771AC7E00953C70 = {
 			isa = PBXGroup;
 			children = (
+				258DA6F11771B52500953C70 /* Classes */,
 				258DA6C81771AC7E00953C70 /* RUIKitchenSink */,
 				258DA6E11771AC7E00953C70 /* RUIKitchenSinkTests */,
 				258DA6C11771AC7E00953C70 /* Frameworks */,
@@ -142,6 +147,15 @@
 				258DA6E41771AC7E00953C70 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		258DA6F11771B52500953C70 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				258DA6F21771B53200953C70 /* RModalViewController.h */,
+				258DA6F31771B53200953C70 /* RModalViewController.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +255,7 @@
 			files = (
 				258DA6D31771AC7E00953C70 /* AppDelegate.m in Sources */,
 				258DA6CF1771AC7E00953C70 /* main.m in Sources */,
+				258DA6F41771B53200953C70 /* RModalViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				258DA6F51771B53200953C70 /* RModalViewController.m in Sources */,
 				258DA6E81771AC7E00953C70 /* RUIKitchenSinkTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,6 +376,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RUIKitchenSink/RUIKitchenSink-Prefix.pch";
 				INFOPLIST_FILE = "RUIKitchenSink/RUIKitchenSink-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -373,6 +390,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RUIKitchenSink/RUIKitchenSink-Prefix.pch";
 				INFOPLIST_FILE = "RUIKitchenSink/RUIKitchenSink-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
