@@ -16,16 +16,16 @@ static const NSInteger NavigationBarHeight = 44;
 @property (nonatomic, retain) UINavigationBar *navigationBar;
 
 
-//+ (id)showWithTitle:(NSString *)title forViewController:(UIViewController *)viewController;
++ (id)showForViewController:(UIViewController *)viewController;
 
-//+ (id)showWithTitleView:(UIView *)titleView forViewController:(UIViewController *)viewController;
++ (id)showWithTitleView:(UIView *)titleView forViewController:(UIViewController *)viewController;
 
-//+ (id)showForViewController:(UIViewController *)viewController;
++ (id)showWithTitle:(NSString *)title ForViewController:(UIViewController *)viewController;
 
 
 - (CGRect)frameForMainContent;
 
-//- (void)dismisSelf;
+- (void)dismisSelf;
 
 @property (nonatomic, retain) UIBarButtonItem *rightBarButtonItem;
 

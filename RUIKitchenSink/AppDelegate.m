@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "KitchenViewController.h"
 
 @implementation AppDelegate
 
@@ -15,6 +16,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    KitchenViewController *kvc = [[KitchenViewController alloc] initWithNibName:@"KitchenViewController" bundle:[NSBundle mainBundle]];
+    self.window.rootViewController = kvc;
     [self.window makeKeyAndVisible];
     return YES;
 }

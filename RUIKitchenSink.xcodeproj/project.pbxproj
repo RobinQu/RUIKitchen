@@ -21,6 +21,9 @@
 		258DA6E81771AC7E00953C70 /* RUIKitchenSinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 258DA6E71771AC7E00953C70 /* RUIKitchenSinkTests.m */; };
 		258DA6F41771B53200953C70 /* RModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 258DA6F31771B53200953C70 /* RModalViewController.m */; };
 		258DA6F51771B53200953C70 /* RModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 258DA6F31771B53200953C70 /* RModalViewController.m */; };
+		25BC3A0617752FBA0096E193 /* KitchenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BC3A0417752FBA0096E193 /* KitchenViewController.m */; };
+		25BC3A0717752FBA0096E193 /* KitchenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25BC3A0517752FBA0096E193 /* KitchenViewController.xib */; };
+		25BC3A0A1775A2950096E193 /* RTextComposerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BC3A091775A2950096E193 /* RTextComposerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +55,11 @@
 		258DA6E71771AC7E00953C70 /* RUIKitchenSinkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RUIKitchenSinkTests.m; sourceTree = "<group>"; };
 		258DA6F21771B53200953C70 /* RModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RModalViewController.h; path = Classes/RModalViewController.h; sourceTree = "<group>"; };
 		258DA6F31771B53200953C70 /* RModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RModalViewController.m; path = Classes/RModalViewController.m; sourceTree = "<group>"; };
+		25BC3A0317752FBA0096E193 /* KitchenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KitchenViewController.h; sourceTree = "<group>"; };
+		25BC3A0417752FBA0096E193 /* KitchenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KitchenViewController.m; sourceTree = "<group>"; };
+		25BC3A0517752FBA0096E193 /* KitchenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KitchenViewController.xib; sourceTree = "<group>"; };
+		25BC3A081775A2950096E193 /* RTextComposerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTextComposerViewController.h; sourceTree = "<group>"; };
+		25BC3A091775A2950096E193 /* RTextComposerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTextComposerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +124,9 @@
 				258DA6D21771AC7E00953C70 /* AppDelegate.m */,
 				258DA6D41771AC7E00953C70 /* Images.xcassets */,
 				258DA6C91771AC7E00953C70 /* Supporting Files */,
+				25BC3A0317752FBA0096E193 /* KitchenViewController.h */,
+				25BC3A0417752FBA0096E193 /* KitchenViewController.m */,
+				25BC3A0517752FBA0096E193 /* KitchenViewController.xib */,
 			);
 			path = RUIKitchenSink;
 			sourceTree = "<group>";
@@ -154,6 +165,8 @@
 			children = (
 				258DA6F21771B53200953C70 /* RModalViewController.h */,
 				258DA6F31771B53200953C70 /* RModalViewController.m */,
+				25BC3A081775A2950096E193 /* RTextComposerViewController.h */,
+				25BC3A091775A2950096E193 /* RTextComposerViewController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -235,6 +248,7 @@
 			files = (
 				258DA6CD1771AC7E00953C70 /* InfoPlist.strings in Resources */,
 				258DA6D51771AC7E00953C70 /* Images.xcassets in Resources */,
+				25BC3A0717752FBA0096E193 /* KitchenViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,7 +269,9 @@
 			files = (
 				258DA6D31771AC7E00953C70 /* AppDelegate.m in Sources */,
 				258DA6CF1771AC7E00953C70 /* main.m in Sources */,
+				25BC3A0A1775A2950096E193 /* RTextComposerViewController.m in Sources */,
 				258DA6F41771B53200953C70 /* RModalViewController.m in Sources */,
+				25BC3A0617752FBA0096E193 /* KitchenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +471,7 @@
 				258DA6ED1771AC7E00953C70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		258DA6EE1771AC7E00953C70 /* Build configuration list for PBXNativeTarget "RUIKitchenSinkTests" */ = {
 			isa = XCConfigurationList;
@@ -463,6 +480,7 @@
 				258DA6F01771AC7E00953C70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,6 +7,9 @@
 //
 
 #import "RModalViewController.h"
+#import <objc/runtime.h>
+
+static char INSTANCE_ASSOCIATION_KEY;
 
 @interface RModalViewController ()
 
@@ -14,6 +17,36 @@
 @end
 
 @implementation RModalViewController
+
+//http://stackoverflow.com/questions/8392687/giving-each-subclass-its-own-copy-of-a-class-variable
++ (id)showForViewController:(UIViewController *)viewController
+{
+    RModalViewController *vc = objc_getAssociatedObject(self, &INSTANCE_ASSOCIATION_KEY);
+    if (!vc) {
+        vc = [[self alloc] initWithNibName:nil bundle:nil];
+        objc_setAssociatedObject(self, &INSTANCE_ASSOCIATION_KEY, vc, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    if (vc.titleView) {
+        vc.navigationBar.topItem.titleView = vc.titleView;
+    }
+    [viewController presentViewController:vc animated:NO completion:nil];
+    return vc;
+}
+
++ (id)showWithTitle:(NSString *)title ForViewController:(UIViewController *)viewController;
+{
+    RModalViewController* vc = [self showForViewController:viewController];
+    vc.title = title;
+    vc.navigationBar.topItem.title = title;
+    return vc;
+}
+
++ (id)showWithTitleView:(UIView *)titleView forViewController:(UIViewController *)viewController
+{
+    RModalViewController* vc = [self showForViewController:viewController];
+    vc.navigationBar.topItem.titleView = titleView;
+    return vc;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -69,5 +102,9 @@
     }
 }
 
+- (void)dismisSelf
+{
+    [self backAction];
+}
 
 @end
