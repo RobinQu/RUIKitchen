@@ -30,5 +30,6 @@
 @property (nonatomic, weak) id<RTextComposerDelegate> delegate;
 @property (nonatomic, assign) NSUInteger wordCount;
 @property (nonatomic, assign) NSUInteger maxLength;
+@property (nonatomic, readonly, weak) NSString *text;
 
 @end

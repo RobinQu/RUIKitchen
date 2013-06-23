@@ -32,6 +32,11 @@
     return self;
 }
 
+- (NSString *)text
+{
+    return self.textView.text;
+}
+
 - (UITextView *)textView
 {
     if (!_textView) {
