@@ -25,8 +25,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        [self.view addSubview:self.textView];
-        [self.view addSubview:self.toolbarView];
         self.maxLength = INFINITY;
         [self updateCounter];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(adjustViewForKeyboard:) name:UIKeyboardDidShowNotification object:nil];
@@ -38,13 +36,43 @@
 {
     if (!_textView) {
         _textView = [[UITextView alloc] initWithFrame:[self frameForMainContent]];
-        //TODO should inquery its delegate about font size, content inset, text color
-        _textView.font = [UIFont systemFontOfSize:14];
-        _textView.contentInset = UIEdgeInsetsMake(10, 0, 10, 0);
-        _textView.textColor = [UIColor grayColor];
         _textView.delegate = self;
+        //TODO should inquery its delegate about font size, content inset, text color
+        
+        //to prevent horizontal scrolling, we treat left and right insets as margin not padding
+        if (self.delegate && [self.delegate respondsToSelector:@selector(insetsForTextViewInTextComposerViewController:)]) {
+            UIEdgeInsets insets = [self.delegate insetsForTextViewInTextComposerViewController:self];
+            _textView.contentInset = UIEdgeInsetsMake(insets.top
+                                                      , 0, insets.bottom, 0);
+        } else {
+            _textView.contentInset = UIEdgeInsetsMake(10, 0, 10, 0);
+        }
+        
+        if (self.delegate && [self.delegate respondsToSelector:@selector(fontForTextViewInTextComposerViewController:)]) {
+            _textView.font = [self.delegate fontForTextViewInTextComposerViewController:self];
+        } else {
+            _textView.font = [UIFont systemFontOfSize:14];
+        }
+        
+        if (self.delegate && [self.delegate respondsToSelector:@selector(colorForTextViewInTextComposerViewController:)]) {
+            _textView.textColor = [self.delegate colorForTextViewInTextComposerViewController:self];
+        } else {
+            _textView.textColor = [UIColor grayColor];
+        }
+        [self.view addSubview:_textView];
     }
     return _textView;
+}
+
+- (UIView *)toolbarView
+{
+    if (!_toolbarView) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(viewForToolbarInTextComposerViewController:)]) {
+            _toolbarView = [self.delegate viewForToolbarInTextComposerViewController:self];
+            [self.view addSubview:_toolbarView];
+        }
+    }
+    return _toolbarView;
 }
 
 - (UIBarButtonItem *)rightBarButtonItem
@@ -62,8 +90,15 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    //Force update navigation items
-    self.navigationBar.topItem.rightBarButtonItem = self.rightBarButtonItem;
+    //delegate is possibly assgined after intialization
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.delegate && [self.delegate respondsToSelector:@selector(titleForTextComposerViewController:)]) {
+            self.title = [self.delegate titleForTextComposerViewController:self];
+        }
+        self.navigationBar.topItem.rightBarButtonItem = self.rightBarButtonItem;
+        [self.textView becomeFirstResponder];
+    });
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -71,7 +106,6 @@
     [super viewDidAppear:animated];
     [self.textView becomeFirstResponder];
 }
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -93,7 +127,7 @@
         toolbarHeight = [self.delegate heightForToolbarInTextComposerViewController:self];
     }
     self.textView.frame = CGRectMake(0, maxFrame.origin.y, maxFrame.size.width, maxFrame.size.height -  kFrame.size.height - toolbarHeight);
-    self.toolbarView.frame = CGRectMake(0, maxFrame.origin.y + maxFrame.size.height - kFrame.size.height - toolbarHeight, maxFrame.origin.x, toolbarHeight);
+    self.toolbarView.frame = CGRectMake(0, maxFrame.origin.y + maxFrame.size.height - kFrame.size.height - toolbarHeight, maxFrame.size.width, toolbarHeight);
 }
 
 - (void)resetContent

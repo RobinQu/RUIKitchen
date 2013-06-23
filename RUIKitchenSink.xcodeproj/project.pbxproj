@@ -24,6 +24,7 @@
 		25BC3A0617752FBA0096E193 /* KitchenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BC3A0417752FBA0096E193 /* KitchenViewController.m */; };
 		25BC3A0717752FBA0096E193 /* KitchenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25BC3A0517752FBA0096E193 /* KitchenViewController.xib */; };
 		25BC3A0A1775A2950096E193 /* RTextComposerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BC3A091775A2950096E193 /* RTextComposerViewController.m */; };
+		25BC3A0D1775D5B30096E193 /* KitchenTextComposerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BC3A0C1775D5B30096E193 /* KitchenTextComposerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		25BC3A0517752FBA0096E193 /* KitchenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KitchenViewController.xib; sourceTree = "<group>"; };
 		25BC3A081775A2950096E193 /* RTextComposerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTextComposerViewController.h; sourceTree = "<group>"; };
 		25BC3A091775A2950096E193 /* RTextComposerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTextComposerViewController.m; sourceTree = "<group>"; };
+		25BC3A0B1775D5B30096E193 /* KitchenTextComposerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KitchenTextComposerViewController.h; sourceTree = "<group>"; };
+		25BC3A0C1775D5B30096E193 /* KitchenTextComposerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KitchenTextComposerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +130,8 @@
 				25BC3A0317752FBA0096E193 /* KitchenViewController.h */,
 				25BC3A0417752FBA0096E193 /* KitchenViewController.m */,
 				25BC3A0517752FBA0096E193 /* KitchenViewController.xib */,
+				25BC3A0B1775D5B30096E193 /* KitchenTextComposerViewController.h */,
+				25BC3A0C1775D5B30096E193 /* KitchenTextComposerViewController.m */,
 			);
 			path = RUIKitchenSink;
 			sourceTree = "<group>";
@@ -269,6 +274,7 @@
 			files = (
 				258DA6D31771AC7E00953C70 /* AppDelegate.m in Sources */,
 				258DA6CF1771AC7E00953C70 /* main.m in Sources */,
+				25BC3A0D1775D5B30096E193 /* KitchenTextComposerViewController.m in Sources */,
 				25BC3A0A1775A2950096E193 /* RTextComposerViewController.m in Sources */,
 				258DA6F41771B53200953C70 /* RModalViewController.m in Sources */,
 				25BC3A0617752FBA0096E193 /* KitchenViewController.m in Sources */,

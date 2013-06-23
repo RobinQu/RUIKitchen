@@ -10,6 +10,8 @@
 #import <objc/runtime.h>
 
 static char INSTANCE_ASSOCIATION_KEY;
+static char kModalViewTitleKVO;
+
 
 @interface RModalViewController ()
 
@@ -29,6 +31,7 @@ static char INSTANCE_ASSOCIATION_KEY;
     if (vc.titleView) {
         vc.navigationBar.topItem.titleView = vc.titleView;
     }
+    
     [viewController presentViewController:vc animated:NO completion:nil];
     return vc;
 }
@@ -62,13 +65,20 @@ static char INSTANCE_ASSOCIATION_KEY;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
+    [self addObserver:self forKeyPath:@"title" options:0 context:&kModalViewTitleKVO];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context == &kModalViewTitleKVO) {
+        self.navigationBar.topItem.title = self.title;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -78,13 +88,13 @@ static char INSTANCE_ASSOCIATION_KEY;
 
 - (CGRect)frameForMainContent
 {
-    return CGRectMake(0, NavigationBarHeight, self.view.frame.size.width, self.view.frame.size.height - NavigationBarHeight);
+    return CGRectMake(self.view.frame.origin.x, NavigationBarHeight + self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height - NavigationBarHeight);
 }
 
 - (UINavigationBar *)navigationBar
 {
     if (!_navigationBar) {
-        _navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, NavigationBarHeight)];
+        _navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, NavigationBarHeight)];
         UINavigationItem *currentItem = [[UINavigationItem alloc] initWithTitle:self.title];
         currentItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(backAction)];;
         currentItem.rightBarButtonItem = self.rightBarButtonItem;
@@ -95,7 +105,7 @@ static char INSTANCE_ASSOCIATION_KEY;
 
 - (void)backAction
 {
-    [self dismissViewControllerAnimated:NO completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
     SEL didClose = @selector(dialogDidCloseByUser);
     if ([self respondsToSelector:didClose]) {
         [self performSelector:didClose];

@@ -7,11 +7,11 @@
 //
 
 #import "KitchenViewController.h"
-#import "RTextComposerViewController.h"
+#import "KitchenTextComposerViewController.h"
 
 @interface KitchenViewController ()
 
-//@property (nonatomic, retain) RTextComposerViewController *composerVC;
+@property (nonatomic, retain) KitchenTextComposerViewController *composerVC;
 
 @end
 
@@ -43,12 +43,20 @@
     [super viewDidUnload];
 }
 
+- (KitchenTextComposerViewController *)composerVC
+{
+    if (!_composerVC) {
+        _composerVC = [KitchenTextComposerViewController defaultTextComposerViewController];
+    }
+    return _composerVC;
+}
+
 - (IBAction)showModalVC:(id)sender {
     
 }
 
 - (IBAction)showComposerVC:(id)sender {
-    [RTextComposerViewController showWithTitle:@"Text Composer" ForViewController:self];
+    [self presentViewController:self.composerVC animated:YES completion:nil];
 }
 
 

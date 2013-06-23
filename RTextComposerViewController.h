@@ -12,9 +12,15 @@
 
 @protocol RTextComposerDelegate <NSObject>
 
+@optional
 - (UIView *)viewForToolbarInTextComposerViewController:(RTextComposerViewController *)textComposerViewController;
 - (CGFloat)heightForToolbarInTextComposerViewController:(RTextComposerViewController *)textComposerViewController;
 - (UIBarButtonItem *)primaryBarButtonItemForTextComposerViewController:(RTextComposerViewController *)textComposerViewController;
+- (UIEdgeInsets)insetsForTextViewInTextComposerViewController:(RTextComposerViewController *)textComposerViewController;
+- (UIFont *)fontForTextViewInTextComposerViewController:(RTextComposerViewController *)textComposerViewController;
+- (UIColor *)colorForTextViewInTextComposerViewController:(RTextComposerViewController *)textComposerViewController;
+- (NSString *)titleForTextComposerViewController:(RTextComposerViewController *)textComposerViewController;
+
 
 @end
 
