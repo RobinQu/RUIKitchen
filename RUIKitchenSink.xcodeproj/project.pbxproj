@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25290D9017770BBD002B04B5 /* RModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25290D8D17770BBD002B04B5 /* RModalViewController.m */; };
+		25290D9117770BBD002B04B5 /* RTextComposerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25290D8F17770BBD002B04B5 /* RTextComposerViewController.m */; };
 		258DA6C31771AC7E00953C70 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258DA6C21771AC7E00953C70 /* Foundation.framework */; };
 		258DA6C51771AC7E00953C70 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258DA6C41771AC7E00953C70 /* CoreGraphics.framework */; };
 		258DA6C71771AC7E00953C70 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258DA6C61771AC7E00953C70 /* UIKit.framework */; };
@@ -19,11 +21,8 @@
 		258DA6DE1771AC7E00953C70 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258DA6C61771AC7E00953C70 /* UIKit.framework */; };
 		258DA6E61771AC7E00953C70 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 258DA6E41771AC7E00953C70 /* InfoPlist.strings */; };
 		258DA6E81771AC7E00953C70 /* RUIKitchenSinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 258DA6E71771AC7E00953C70 /* RUIKitchenSinkTests.m */; };
-		258DA6F41771B53200953C70 /* RModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 258DA6F31771B53200953C70 /* RModalViewController.m */; };
-		258DA6F51771B53200953C70 /* RModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 258DA6F31771B53200953C70 /* RModalViewController.m */; };
 		25BC3A0617752FBA0096E193 /* KitchenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BC3A0417752FBA0096E193 /* KitchenViewController.m */; };
 		25BC3A0717752FBA0096E193 /* KitchenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25BC3A0517752FBA0096E193 /* KitchenViewController.xib */; };
-		25BC3A0A1775A2950096E193 /* RTextComposerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BC3A091775A2950096E193 /* RTextComposerViewController.m */; };
 		25BC3A0D1775D5B30096E193 /* KitchenTextComposerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BC3A0C1775D5B30096E193 /* KitchenTextComposerViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		25290D8C17770BBD002B04B5 /* RModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RModalViewController.h; sourceTree = "<group>"; };
+		25290D8D17770BBD002B04B5 /* RModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RModalViewController.m; sourceTree = "<group>"; };
+		25290D8E17770BBD002B04B5 /* RTextComposerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTextComposerViewController.h; sourceTree = "<group>"; };
+		25290D8F17770BBD002B04B5 /* RTextComposerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTextComposerViewController.m; sourceTree = "<group>"; };
 		258DA6BF1771AC7E00953C70 /* RUIKitchenSink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RUIKitchenSink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		258DA6C21771AC7E00953C70 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		258DA6C41771AC7E00953C70 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -54,13 +57,9 @@
 		258DA6E31771AC7E00953C70 /* RUIKitchenSinkTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RUIKitchenSinkTests-Info.plist"; sourceTree = "<group>"; };
 		258DA6E51771AC7E00953C70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		258DA6E71771AC7E00953C70 /* RUIKitchenSinkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RUIKitchenSinkTests.m; sourceTree = "<group>"; };
-		258DA6F21771B53200953C70 /* RModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RModalViewController.h; path = Classes/RModalViewController.h; sourceTree = "<group>"; };
-		258DA6F31771B53200953C70 /* RModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RModalViewController.m; path = Classes/RModalViewController.m; sourceTree = "<group>"; };
 		25BC3A0317752FBA0096E193 /* KitchenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KitchenViewController.h; sourceTree = "<group>"; };
 		25BC3A0417752FBA0096E193 /* KitchenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KitchenViewController.m; sourceTree = "<group>"; };
 		25BC3A0517752FBA0096E193 /* KitchenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KitchenViewController.xib; sourceTree = "<group>"; };
-		25BC3A081775A2950096E193 /* RTextComposerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTextComposerViewController.h; sourceTree = "<group>"; };
-		25BC3A091775A2950096E193 /* RTextComposerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTextComposerViewController.m; sourceTree = "<group>"; };
 		25BC3A0B1775D5B30096E193 /* KitchenTextComposerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KitchenTextComposerViewController.h; sourceTree = "<group>"; };
 		25BC3A0C1775D5B30096E193 /* KitchenTextComposerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KitchenTextComposerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -168,12 +167,12 @@
 		258DA6F11771B52500953C70 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				258DA6F21771B53200953C70 /* RModalViewController.h */,
-				258DA6F31771B53200953C70 /* RModalViewController.m */,
-				25BC3A081775A2950096E193 /* RTextComposerViewController.h */,
-				25BC3A091775A2950096E193 /* RTextComposerViewController.m */,
+				25290D8C17770BBD002B04B5 /* RModalViewController.h */,
+				25290D8D17770BBD002B04B5 /* RModalViewController.m */,
+				25290D8E17770BBD002B04B5 /* RTextComposerViewController.h */,
+				25290D8F17770BBD002B04B5 /* RTextComposerViewController.m */,
 			);
-			name = Classes;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,11 +271,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25290D9117770BBD002B04B5 /* RTextComposerViewController.m in Sources */,
+				25290D9017770BBD002B04B5 /* RModalViewController.m in Sources */,
 				258DA6D31771AC7E00953C70 /* AppDelegate.m in Sources */,
 				258DA6CF1771AC7E00953C70 /* main.m in Sources */,
 				25BC3A0D1775D5B30096E193 /* KitchenTextComposerViewController.m in Sources */,
-				25BC3A0A1775A2950096E193 /* RTextComposerViewController.m in Sources */,
-				258DA6F41771B53200953C70 /* RModalViewController.m in Sources */,
 				25BC3A0617752FBA0096E193 /* KitchenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,7 +284,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				258DA6F51771B53200953C70 /* RModalViewController.m in Sources */,
 				258DA6E81771AC7E00953C70 /* RUIKitchenSinkTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
