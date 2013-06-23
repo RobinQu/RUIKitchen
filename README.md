@@ -9,3 +9,5 @@ Components
 ==========
 
 * RModalViewcontroller
+* RTextComposerViewController
+  * Together with RTextComposerDelegate
