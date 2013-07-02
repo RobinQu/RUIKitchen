@@ -80,15 +80,6 @@
     return _toolbarView;
 }
 
-- (UIBarButtonItem *)rightBarButtonItem
-{
-    if (!_rightBarButtonItem) {
-        if (self.delegate && [self.delegate respondsToSelector:@selector(primaryBarButtonItemForTextComposerViewController:)]) {
-            _rightBarButtonItem = [self.delegate primaryBarButtonItemForTextComposerViewController:self];
-        }
-    }
-    return _rightBarButtonItem;
-}
 
 - (void)viewDidLoad
 {
@@ -96,14 +87,7 @@
 	// Do any additional setup after loading the view.
     
     //delegate is possibly assgined after intialization
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (self.delegate && [self.delegate respondsToSelector:@selector(titleForTextComposerViewController:)]) {
-            self.title = [self.delegate titleForTextComposerViewController:self];
-        }
-        self.navigationBar.topItem.rightBarButtonItem = self.rightBarButtonItem;
-        [self.textView becomeFirstResponder];
-    });
-    
+    [self.textView becomeFirstResponder];
 }
 
 - (void)viewDidAppear:(BOOL)animated

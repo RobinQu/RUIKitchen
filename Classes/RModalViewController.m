@@ -32,7 +32,7 @@ static char kModalViewTitleKVO;
         vc.navigationBar.topItem.titleView = vc.titleView;
     }
     
-    [viewController presentViewController:vc animated:NO completion:nil];
+    [viewController presentViewController:vc animated:YES completion:nil];
     return vc;
 }
 
@@ -65,7 +65,13 @@ static char kModalViewTitleKVO;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
     [self addObserver:self forKeyPath:@"title" options:0 context:&kModalViewTitleKVO];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.delegate && [self.delegate respondsToSelector:@selector(titleForModalViewController:)]) {
+            self.title = [self.delegate titleForModalViewController:self];
+        }
+    });
 }
 
 - (void)didReceiveMemoryWarning
@@ -88,19 +94,41 @@ static char kModalViewTitleKVO;
 
 - (CGRect)frameForMainContent
 {
-    return CGRectMake(self.view.frame.origin.x, NavigationBarHeight + self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height - NavigationBarHeight);
+    return CGRectMake(self.view.bounds.origin.x, NavigationBarHeight + self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height - NavigationBarHeight);
 }
 
 - (UINavigationBar *)navigationBar
 {
     if (!_navigationBar) {
-        _navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, NavigationBarHeight)];
+        _navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.frame.size.width, NavigationBarHeight)];
         UINavigationItem *currentItem = [[UINavigationItem alloc] initWithTitle:self.title];
-        currentItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(backAction)];;
         currentItem.rightBarButtonItem = self.rightBarButtonItem;
+        currentItem.leftBarButtonItem = self.leftBarButtonItem;
         [_navigationBar pushNavigationItem:currentItem animated:NO];
     }
     return _navigationBar;
+}
+
+- (UIBarButtonItem *)leftBarButtonItem
+{
+    if (!_leftBarButtonItem) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(primaryBarButtonItemForModalViewController:)]) {
+            _leftBarButtonItem = [self.delegate primaryBarButtonItemForModalViewController:self];
+        } else {
+            _leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(backAction)];
+        }
+    }
+    return _leftBarButtonItem;
+}
+
+- (UIBarButtonItem *)rightBarButtonItem
+{
+    if (!_rightBarButtonItem) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(secondaryBarButtonItemForModalViewController:)]) {
+            _rightBarButtonItem = [self.delegate secondaryBarButtonItemForModalViewController:self];
+        }
+    }
+    return _rightBarButtonItem;
 }
 
 - (void)backAction
@@ -110,6 +138,11 @@ static char kModalViewTitleKVO;
     if ([self respondsToSelector:didClose]) {
         [self performSelector:didClose];
     }
+}
+
+- (void)dialogDidCloseByUser
+{
+    
 }
 
 - (void)dismisSelf

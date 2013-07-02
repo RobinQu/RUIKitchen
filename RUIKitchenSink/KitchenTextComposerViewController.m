@@ -33,8 +33,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-- (NSString *)titleForTextComposerViewController:(RTextComposerViewController *)textComposerViewController
+- (NSString *)titleForModalViewController:(RModalViewController *)modalViewController
 {
     return @"Text Composer";
 }
@@ -52,7 +51,7 @@ static CGFloat toolbarHeight = 40;
     return toolbarHeight;
 }
 
-- (UIBarButtonItem *)primaryBarButtonItemForTextComposerViewController:(RTextComposerViewController *)textComposerViewController
+- (UIBarButtonItem *)primaryBarButtonItemForModalViewController:(RModalViewController *)modalViewController
 {
     UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStyleBordered target:self action:@selector(doSend)];
     return barButton;

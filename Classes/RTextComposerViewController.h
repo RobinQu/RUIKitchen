@@ -10,16 +10,16 @@
 
 @class RTextComposerViewController;
 
-@protocol RTextComposerDelegate <NSObject>
+@protocol RTextComposerDelegate <RModalViewDelegate>
 
 @optional
 - (UIView *)viewForToolbarInTextComposerViewController:(RTextComposerViewController *)textComposerViewController;
 - (CGFloat)heightForToolbarInTextComposerViewController:(RTextComposerViewController *)textComposerViewController;
-- (UIBarButtonItem *)primaryBarButtonItemForTextComposerViewController:(RTextComposerViewController *)textComposerViewController;
+
+
 - (UIEdgeInsets)insetsForTextViewInTextComposerViewController:(RTextComposerViewController *)textComposerViewController;
 - (UIFont *)fontForTextViewInTextComposerViewController:(RTextComposerViewController *)textComposerViewController;
 - (UIColor *)colorForTextViewInTextComposerViewController:(RTextComposerViewController *)textComposerViewController;
-- (NSString *)titleForTextComposerViewController:(RTextComposerViewController *)textComposerViewController;
 
 
 @end
@@ -31,5 +31,7 @@
 @property (nonatomic, assign) NSUInteger wordCount;
 @property (nonatomic, assign) NSUInteger maxLength;
 @property (nonatomic, readonly, weak) NSString *text;
+
+- (void)resetContent;
 
 @end
