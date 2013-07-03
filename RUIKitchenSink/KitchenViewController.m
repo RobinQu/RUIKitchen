@@ -8,10 +8,12 @@
 
 #import "KitchenViewController.h"
 #import "KitchenTextComposerViewController.h"
+#import "KitchenWebViewController.h"
 
 @interface KitchenViewController ()
 
 @property (nonatomic, retain) KitchenTextComposerViewController *composerVC;
+@property (nonatomic, retain) KitchenWebViewController *browserVC;
 
 @end
 
@@ -51,12 +53,27 @@
     return _composerVC;
 }
 
+- (KitchenWebViewController *)browserVC
+{
+    if (!_browserVC) {
+        _browserVC = [KitchenWebViewController defaultBrowserViewController];
+    }
+    return _browserVC;
+}
+
 - (IBAction)showModalVC:(id)sender {
     
 }
 
+- (IBAction)showBrowserVC:(id)sender {
+    [self presentViewController:self.browserVC animated:YES completion:nil];
+    [self.browserVC loadURL:[NSURL URLWithString:@"http://www.google.com/"]];
+    self.browserVC.title = @"Let's Google";
+}
+
 - (IBAction)showComposerVC:(id)sender {
     [self presentViewController:self.composerVC animated:YES completion:nil];
+
 }
 
 

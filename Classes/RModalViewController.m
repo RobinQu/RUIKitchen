@@ -56,7 +56,6 @@ static char kModalViewTitleKVO;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        [self.view addSubview:self.navigationBar];
     }
     return self;
 }
@@ -65,7 +64,7 @@ static char kModalViewTitleKVO;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
+    [self.view addSubview:self.navigationBar];
     [self addObserver:self forKeyPath:@"title" options:0 context:&kModalViewTitleKVO];
     dispatch_async(dispatch_get_main_queue(), ^{
         if (self.delegate && [self.delegate respondsToSelector:@selector(titleForModalViewController:)]) {

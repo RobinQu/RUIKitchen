@@ -10,13 +10,11 @@
 
 @class RTextComposerViewController;
 
-@protocol RTextComposerDelegate <RModalViewDelegate>
+@protocol RTextComposerDelegate <RModalDelegate>
 
 @optional
 - (UIView *)viewForToolbarInTextComposerViewController:(RTextComposerViewController *)textComposerViewController;
 - (CGFloat)heightForToolbarInTextComposerViewController:(RTextComposerViewController *)textComposerViewController;
-
-
 - (UIEdgeInsets)insetsForTextViewInTextComposerViewController:(RTextComposerViewController *)textComposerViewController;
 - (UIFont *)fontForTextViewInTextComposerViewController:(RTextComposerViewController *)textComposerViewController;
 - (UIColor *)colorForTextViewInTextComposerViewController:(RTextComposerViewController *)textComposerViewController;

@@ -11,7 +11,6 @@
 @interface RTextComposerViewController ()
 
 @property (nonatomic, retain) UITextView *textView;
-//@property (nonatomic, retain) UIBarButtonItem *primaryBarButtonItem;
 @property (nonatomic, retain) UIView *toolbarView;
 
 @end

@@ -13,5 +13,6 @@
 
 - (IBAction)showModalVC:(id)sender;
 - (IBAction)showComposerVC:(id)sender;
+- (IBAction)showBrowserVC:(id)sender;
 
 @end

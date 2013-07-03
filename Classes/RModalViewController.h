@@ -12,7 +12,7 @@ static const NSInteger NavigationBarHeight = 44;
 
 @class RModalViewController;
 
-@protocol RModalViewDelegate <NSObject>
+@protocol RModalDelegate <NSObject>
 
 @optional
 - (UIBarButtonItem *)primaryBarButtonItemForModalViewController:(RModalViewController *)modalViewController;
@@ -24,26 +24,20 @@ static const NSInteger NavigationBarHeight = 44;
 @interface RModalViewController : UIViewController
 
 @property (nonatomic, retain) UINavigationBar *navigationBar;
+@property (nonatomic, weak) id<RModalDelegate> delegate;
+@property (nonatomic, retain) UIBarButtonItem *rightBarButtonItem;
+@property (nonatomic, retain) UIBarButtonItem *leftBarButtonItem;
+@property (nonatomic, retain) UIView *titleView;
 
 
 + (id)showForViewController:(UIViewController *)viewController;
-
 + (id)showWithTitleView:(UIView *)titleView forViewController:(UIViewController *)viewController;
-
 + (id)showWithTitle:(NSString *)title ForViewController:(UIViewController *)viewController;
-
 - (CGRect)frameForMainContent;
-
 - (void)dismisSelf;
-
 - (void)dialogDidCloseByUser;
 
 
-@property (nonatomic, weak) id<RModalViewDelegate> delegate;
-@property (nonatomic, retain) UIBarButtonItem *rightBarButtonItem;
-@property (nonatomic, retain) UIBarButtonItem *leftBarButtonItem;
-
-@property (nonatomic, retain) UIView *titleView;
 
 
 @end
