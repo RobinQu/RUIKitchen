@@ -11,6 +11,9 @@
 
 static char INSTANCE_ASSOCIATION_KEY;
 static char kModalViewTitleKVO;
+static char kModalViewDelegateKVO;
+static char kModalViewLeftBarItemKVO;
+static char kModalViewRightBarItemKVO;
 
 
 @interface RModalViewController ()
@@ -55,7 +58,11 @@ static char kModalViewTitleKVO;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        [self.view addSubview:self.navigationBar];
+        [self addObserver:self forKeyPath:@"title" options:0 context:&kModalViewTitleKVO];
+        [self addObserver:self forKeyPath:@"delegate" options:0 context:&kModalViewDelegateKVO];
+        [self addObserver:self forKeyPath:@"leftBarButtonItem" options:0 context:&kModalViewLeftBarItemKVO];
+        [self addObserver:self forKeyPath:@"rightBarButtonItem" options:0 context:&kModalViewRightBarItemKVO];
     }
     return self;
 }
@@ -64,13 +71,8 @@ static char kModalViewTitleKVO;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self.view addSubview:self.navigationBar];
-    [self addObserver:self forKeyPath:@"title" options:0 context:&kModalViewTitleKVO];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (self.delegate && [self.delegate respondsToSelector:@selector(titleForModalViewController:)]) {
-            self.title = [self.delegate titleForModalViewController:self];
-        }
-    });
+    
+//    [self delegateDidChange];
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,12 +85,31 @@ static char kModalViewTitleKVO;
 {
     if (context == &kModalViewTitleKVO) {
         self.navigationBar.topItem.title = self.title;
+    } else if(context == &kModalViewDelegateKVO) {
+        [self delegateDidChange];
+    } else if (context == &kModalViewLeftBarItemKVO) {
+        self.navigationBar.topItem.leftBarButtonItem = self.leftBarButtonItem;
+    } else if (context == &kModalViewRightBarItemKVO) {
+        self.navigationBar.topItem.rightBarButtonItem = self.rightBarButtonItem;
     }
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+}
+
+- (void)delegateDidChange
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(primaryBarButtonItemForModalViewController:)]) {
+        self.leftBarButtonItem = [self.delegate primaryBarButtonItemForModalViewController:self];
+    }
+    if (self.delegate && [self.delegate respondsToSelector:@selector(secondaryBarButtonItemForModalViewController:)]) {
+        self.rightBarButtonItem = [self.delegate secondaryBarButtonItemForModalViewController:self];
+    }
+    if (self.delegate && [self.delegate respondsToSelector:@selector(titleForModalViewController:)]) {
+        self.title = [self.delegate titleForModalViewController:self];
+    }
 }
 
 - (CGRect)frameForMainContent
@@ -111,24 +132,20 @@ static char kModalViewTitleKVO;
 - (UIBarButtonItem *)leftBarButtonItem
 {
     if (!_leftBarButtonItem) {
-        if (self.delegate && [self.delegate respondsToSelector:@selector(primaryBarButtonItemForModalViewController:)]) {
-            _leftBarButtonItem = [self.delegate primaryBarButtonItemForModalViewController:self];
-        } else {
-            _leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(backAction)];
-        }
+        _leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(backAction)];
     }
     return _leftBarButtonItem;
 }
 
-- (UIBarButtonItem *)rightBarButtonItem
-{
-    if (!_rightBarButtonItem) {
-        if (self.delegate && [self.delegate respondsToSelector:@selector(secondaryBarButtonItemForModalViewController:)]) {
-            _rightBarButtonItem = [self.delegate secondaryBarButtonItemForModalViewController:self];
-        }
-    }
-    return _rightBarButtonItem;
-}
+//- (UIBarButtonItem *)rightBarButtonItem
+//{
+//    if (!_rightBarButtonItem) {
+//        if (self.delegate && [self.delegate respondsToSelector:@selector(secondaryBarButtonItemForModalViewController:)]) {
+//            _rightBarButtonItem = [self.delegate secondaryBarButtonItemForModalViewController:self];
+//        }
+//    }
+//    return _rightBarButtonItem;
+//}
 
 - (void)backAction
 {

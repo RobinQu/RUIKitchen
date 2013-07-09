@@ -18,7 +18,7 @@
 @interface RWebBrowserViewController : RModalViewController
 
 
-@property (nonatomic, retain, readonly) UIWebView *webView;
+@property (nonatomic, retain) UIWebView *webView;
 @property (nonatomic, weak) id<RWebBrowserDelegate> delegate;
 
 - (void)loadURL:(NSURL *)url;

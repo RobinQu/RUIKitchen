@@ -3,19 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>E9BEFA5D-B83F-462D-BF93-480B38F1767F</string>
+	<string>E433E9EB-89BB-4FDC-A1E8-4FC3AEFC72B4</string>
 	<key>IDESourceControlProjectName</key>
 	<string>RUIKitchenSink</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>4DF474C6-E926-405E-A86D-A2F104618AE5</key>
+		<key>C810003C-C3A1-49D6-B1DF-79A37B7D3BF2</key>
 		<string>ssh://github.com/RobinQu/RUIKitchen.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>RUIKitchenSink.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>4DF474C6-E926-405E-A86D-A2F104618AE5</key>
+		<key>C810003C-C3A1-49D6-B1DF-79A37B7D3BF2</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -23,14 +23,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>4DF474C6-E926-405E-A86D-A2F104618AE5</string>
+	<string>C810003C-C3A1-49D6-B1DF-79A37B7D3BF2</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>4DF474C6-E926-405E-A86D-A2F104618AE5</string>
+			<string>C810003C-C3A1-49D6-B1DF-79A37B7D3BF2</string>
 			<key>IDESourceControlWCCName</key>
 			<string>RUIKitchenSink</string>
 		</dict>

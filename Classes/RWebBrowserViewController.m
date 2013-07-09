@@ -53,6 +53,7 @@
         _webView.delegate = self.delegate;
         _webView.frame = [self frameForMainContent];
     }
+    NSLog(@"delegate %@", _webView.delegate);
     return _webView;
 }
 

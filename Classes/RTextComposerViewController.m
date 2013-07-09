@@ -17,7 +17,7 @@
 
 @implementation RTextComposerViewController
 
-@synthesize rightBarButtonItem = _rightBarButtonItem;
+//@synthesize rightBarButtonItem = _rightBarButtonItem;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
